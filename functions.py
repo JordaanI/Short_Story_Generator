@@ -130,7 +130,7 @@ def lookup(param, word_index, word_lexicon):
     else:
         print('Parameter not accepted.')
 
-def generate_sequence(X_test,word_index,model):
+def generate_sequence(X_test,word_index,word_lexicon,model):
 
     import numpy as np
     import random
@@ -161,6 +161,6 @@ def generate_sequence(X_test,word_index,model):
         generated.append(next_idx)
 
     SEED = ' '.join(original_sequence)
-    AI = ' '.join([lookup(i) for i in generated[36:]])
-    REAL = ' '.join([lookup(i) for i in actual[36:]])
+    AI = ' '.join([lookup(i, word_index, word_lexicon) for i in generated[36:]])
+    REAL = ' '.join([lookup(i, word_index, word_lexicon) for i in actual[36:]])
     return 'Seeded sequence: ' + SEED + '\n Actual sequence:' + REAL + '\n Generated squence:' + AI 

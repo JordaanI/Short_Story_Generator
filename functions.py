@@ -161,6 +161,6 @@ def generate_sequence(X_test,word_index,word_lexicon,model):
         generated.append(next_idx)
 
     SEED = ' '.join(original_sequence)
-    AI = ' '.join([lookup(i, word_index, word_lexicon) for i in generated[36:]])
-    REAL = ' '.join([lookup(i, word_index, word_lexicon) for i in actual[36:]])
+    AI = ' '.join([lookup(int(i), word_index, word_lexicon) for i in generated[36:]])
+    REAL = ' '.join([lookup(int(i), word_index, word_lexicon) for i in actual[36:]])
     return 'Seeded sequence: ' + SEED + '\n Actual sequence:' + REAL + '\n Generated squence:' + AI 
